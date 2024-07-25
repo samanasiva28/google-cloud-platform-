@@ -1,0 +1,3 @@
+#CREATE A INSTANCE USING gcloud commands in GCP
+
+gcloud compute instance create sivainstance --zone us-central1-a
