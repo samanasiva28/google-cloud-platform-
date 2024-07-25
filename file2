@@ -1,0 +1,7 @@
+#CREATE A VPC NETWORKS IN GOOGLE CLOUD PLATFORM 
+
+gcloud compute networks create siva-network --subnet-mode=auto
+
+#CREATE A VPC NETWORK IN CUSTOM MODE IN GOOGLE CLOUD PLATFORM
+
+gcloud compute networks create sai-network --subnet-mode=custom
