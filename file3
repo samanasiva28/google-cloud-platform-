@@ -5,3 +5,5 @@ gcloud compute instances list
 # TO VIEW THE NETWORKS 
 
 gcloud compute networks list
+
+THANKYOU GOOGLE CLOUD 
