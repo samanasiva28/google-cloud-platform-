@@ -1,1 +1,20 @@
-HEY GOOGLE THANKS FOR YOUR SERVICES
+THESE ARE THE STEPS TO FOLLOW FOR COPY THE FILES FROM INSTANCE TO GOOGLE CLOUD STORAGE BUCKETS
+
+1.create a service account and give storage admin role[access buckets]
+
+2.create a virtual machine and attach the service account while creation and give access to all cloud apis 
+
+3.go to cloud  shell to check the service account is set or not for run command
+# gcloud config list
+
+# create a key for the service accounts
+
+gcloud iam service-accounts keys create [keyname.json] --iam-account [service account name]  {done in cloud shell}
+
+# to activate the service account run the command in {vm ssh}
+
+gcloud auth activate-service-account [service account name] --key-file [keyfilename]
+
+
+
+#then we send or copy the file from vm to buckets
