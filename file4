@@ -1,2 +1,52 @@
-THIS FILE CONTAINS SOME DATA RELATD TO SAMANA SIVASA
-THANKS FOR THIS OPPORTUNITYI
+KEY MANAGEMENT SERVICE  IN GOOGLE  CLOUD  STORAGE 
+
+1.GOOGLE MANAGED ENCRYPTION KEYS:
+                           THE KEYS ARE AUTOMATICALLY CREATED AND MANTAINED BY GOOGLE WITHOUT  HUMAN INTERACTION
+
+2.CUSTOMER MANAGED ENCRYPTION KEYS:
+                          THESE KEYS ARE CREATEDD BY GOOGLE AND  MANAGED BY HUMANS,THESE KEYS ARE CREATED BY USING KEY MANAGEMNET SERVICE IN THAT CREATE  A KEYRING THOSE ARE REGIONAL ONES THE BUCKET AND KEYS ARE SAME REGION 
+
+3.CUSTOMER SUPPLIED ENCRYPTION KEYS:
+                         THESE KEYS ARE CREATED AND MANAGED BY THE GOOGLE BBY USING COMMANDS AND THESE OPERATIONS ARE PERFORMED THROUGH COMMAND LINE INTERFACE[ CLI ]
+
+#  import base64
+import os
+
+
+def generate_encryption_key():
+    """Generates a 256 bit (32 byte) AES encryption key and prints the
+    base64 representation.
+    This is included for demonstration purposes. You should generate your own
+    key. Please remember that encryption keys should be handled with a
+    comprehensive security policy.
+    """
+    key = os.urandom(32)
+    encoded_key = base64.b64encode(key).decode("utf-8")
+
+    print("Base 64 encoded encryption key: {}".format(encoded_key))
+
+
+# [END storage_generate_encryption_key]
+
+if __name__ == "__main__":
+    generate_encryption_key()
+
+
+# USE THIS FILE AND EXCUTE THE FILE IT GENERATE A KEY BY USING THAT KEY WE ENCRYPT AND DECRYPT THE DATA 
+
+
+#command to encrypt the data which is stored in buckets
+gsutil -o 'GSUtil:encryption_key='{key that we generate from above script} cp {filename}  {bucket-name}
+
+#commnad to decrypt the encrypt data 
+gsutil -o  'GSUtil:decryption-key='{pass the above key} cat {bucket-name}
+
+
+
+
+# USING BOTO FILE WE CAN PASS THE CUSTOMER SUPPILED ENCRYPITON KEYS WHEN WE SEND THE DATA THAT IS AUTOMATICLLY MANAGED BY CSEK AUTOMATICALLY
+
+# run the command it create a boto file 
+gsutil config
+
+#edit the boto file and place the encryption and decryption keys there then if we send any data into gcs its automatically takencare by customer supplied encryption keys 
