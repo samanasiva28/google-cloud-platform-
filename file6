@@ -1,0 +1,17 @@
+# install apache server and setup  our own webpage remove the old one
+
+# insatll apache2 on debian
+sudo apt update -y
+sudo apt install apache2 -y
+
+
+# default path in apache2
+cd /var/www/html
+rm -f index.html [page]
+
+# clone this repository 
+sudo git clone https://github.com/devopswithcloud/st
+atic-website.git
+
+# copy all the file those are present in static-website folder to apache default path[/var/www/html]
+ sudo cp -R static-website/* /var/www/html
