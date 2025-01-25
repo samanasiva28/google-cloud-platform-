@@ -1,4 +1,4 @@
-We will create gsutil commands to execute GCS
+ We will create gsutil commands to execute GCS
 Gstuil command structure
 gsutil gsutil
 
