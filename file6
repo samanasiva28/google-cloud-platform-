@@ -10,8 +10,7 @@ cd /var/www/html
 rm -f index.html [page]
 
 # clone this repository 
-sudo git clone https://github.com/devopswithcloud/st
-atic-website.git
+sudo git clone https://github.com/devopswithcloud/static-website.git
 
 # copy all the file those are present in static-website folder to apache default path[/var/www/html]
  sudo cp -R static-website/* /var/www/html
